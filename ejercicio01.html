@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+</head>
+<body>
+    <div class="badge badge-primary text-wrap" style="width: 6rem;">
+        Ejercicio 01
+    </div>
+    <div class="container-fluid">
+        <div class="row">
+          <div class="col-4">
+            <p>a. Modificar el contenido (texto) del párrafo</p>
+            <div>
+                <button class="btn btn-outline-danger" onclick="modificar()">Mostrar Texto</button>
+                <br/>
+                <p id="texto" class="border">...</p>
+            </div>
+          </div>
+          <div class="col-4">
+            <p>b. Mostrar el texto que se escribe en la entrada dentro del párrafo</p>
+            <div>
+                <label for="nombre">Texto</label>
+                <input type="text" name="nombre" id="nombre">
+                <div><button class="btn btn-outline-warning" onclick="mostrar()">Mostrar Texto</button></div>
+                <p id="texto2" class="border">....</p>
+            </div>
+          </div>
+          <div class="col-4">
+            <p>c. Modificar la imagen: Apagado/Encendido</p>
+            <div>
+                <button class="btn btn-outline-secondary" onclick="cambio(this)">Cambiar</button>
+                <img id="imagen" src="/imagen/pic_bulboff.gif" alt="Apagado">
+            </div>
+          </div>
+        </div>
+      
+      <hr>
+      <div class="row">
+        <div class="col-4">
+          <p>d. Lanzar Diálogo Alerta</p>
+          <div>
+              <button onclick="alertar()" class="btn btn-outline-primary">Mostrar Alerta</button>
+              <br/>
+              <p id="tAlerta" class="border">...</p>
+          </div>
+        </div>
+        <div class="col-4">
+          <p>e. Mostrar Diálogo Confirmación</p>
+          <div>
+            <button  onclick="confirmacion()" class="btn btn-outline-dark">Mostrar Confirmación</button>
+            <br/>
+            <p id="tConfirmación" class="border">...</p>
+          </div>
+        </div>
+        <div class="col-4">
+          <p>f. Mostrar Diálogo Réplica</p>
+          <div>
+            <button onclick="mostrarReplica()" class="btn btn-outline-success">Mostrar Réplica</button>
+            <br/>
+            <p id="tReplica" class="border">...</p>
+          </div>
+        </div>
+      </div>
+    </div>
+    <script>
+        ///complete el código aquí
+        // a.
+        var modificar = ()=>{
+          var r=document.getElementById("texto");
+          r.innerHTML="Condori Cutipa Nick Jordie";
+        }
+        
+        // b.
+        var mostrar =()=>{
+          var g=document.getElementById("nombre").value;
+          var h=document.getElementById("texto2");
+          h.innerHTML=g;
+        }
+        // c.
+
+        function cambio(n){
+                var z=document.getElementById("imagen").getAttribute("src");
+             if(z== "/imagen/pic_bulboff.gif") {
+                z.scr="/imagen/pic_bulbon.gif";
+             } else {
+              z.scr="/imagen/pic_bulboff.gif";
+             }
+          }
+
+        /* function cambio(n){
+            const img = document.getElementById("imagen");
+            const titulo = document.getElementById("titulo"); 
+            if(n===1){
+                img.src="imagen/pic_bulbon.gif";
+                img.onclick = function() {
+                img.onclick=cambio(2);
+                };
+
+                // titulo.innerHTML = "Encendido";
+            }else if(n===2){
+                img.src="imagen/pic_bulboff.gif";
+                img.onclick = function() {
+                img.onclick=cambio(2);
+                };
+                // titulo.innerHTML = "Apagado";
+            }
+        } */
+
+        // e
+        var alertar = ()=>{
+          var n=document.getElementById("tAlerta")
+          n.innerHTML="Se mostro un dialogo Alerta";
+          alert('Este es un dialogo de alerta');
+        }
+        // f
+        function confirmacion() {
+          var textos;
+          var r = confirm("¿Esta de acuerdo en cerrar este dialogo?");
+          if (r == true) {
+            textos = "El usuario eligio Aceptar";
+          } else {
+            textos = "El usuario eligio Cancelar";
+          }
+          document.getElementById("tConfirmación").innerHTML = textos;
+        }
+        // g
+        function mostrarReplica() {
+          var usua = prompt("Please enter your name","gracias" );
+          if (usua != null) {
+            document.getElementById("tReplica").innerHTML =
+            "El usuario escribio " + usua;
+          }
+          else{
+            document.getElementById("tReplica").innerHTML =
+            "El usuario Cancelo ";
+          }
+        }
+    </script>
+</body>
+</html>

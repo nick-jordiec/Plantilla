@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <p id="parrafo">Hola</p>
+
+    <button onclick="alert('Hola')">Saludar</button>
+    <button onclick="saludar()">Funcion</button>
+    <p class="a">P1</p>
+    <p class="a">P2</p>
+    <div class="a">P3</div>
+    <script>
+        // tomar un elemento
+        var p = document.getElementById("parrafo");
+        p.innerHTML="Adios";
+        console.log(p);
+        //tomar muchos elementos
+        var c=document.getElementsByClassName("a");
+        console.log(c);
+        c[2].innerHTML="Cambiado por JS";
+        // tomar elemento por nombre de etiqueta
+        var d= document.getElementsByTagName("div");
+        console.log(d);
+        d.innerHTML="<p>Hola div</p>";
+        var saludar=()=>{
+            alert('Holasss');
+        } 
+    </script>
+</body>
+</html>
